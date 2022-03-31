@@ -6,7 +6,7 @@ function connect(){
 	$DB_HOST = "localhost";
 	$DB_USER = "root";
 	$DB_PASS = "";
-	$DB_NAME = "project_30";
+	$DB_NAME = "project_32";
 	$CONNECT = @mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 	return $CONNECT;
 }
