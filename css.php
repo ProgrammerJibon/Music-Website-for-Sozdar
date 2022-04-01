@@ -390,6 +390,9 @@ hr{
     color: #fff;
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fba500, 0 0 82px #fba500, 0 0 92px #fba500, 0 0 102px #fba500, 0 0 151px #fba500;
 }
+pre{
+    user-select: text;
+}
 
 
 
@@ -403,3 +406,56 @@ hr{
 
 
 /*****************************************************************************************/
+.top_banner {
+
+}
+.top_banner .title{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    padding:  16px 0;
+    cursor: pointer;
+    width: max-content;
+    margin: 0 auto;
+}
+.top_banner .title:hover{
+    transform: scale(1.1);
+}
+.top_banner .top_banner_outset{
+    height: 100vh;
+    background-color: rgb(0 0 0 / 50%);
+    position: relative;
+}
+.top_banner .top_banner_outset .top_banner_inset{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translate(0%, -50%);
+    padding: 0 16px;
+    color: white;
+}
+.social-icons{
+    display: flex;
+    margin: 0 auto;
+    width: max-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    /* border-radius: 6px;
+    background: #ffffff1f;
+    backdrop-filter: blur(3px); */
+}
+.social-icons .social-logo{
+    font-size: 25px;
+    padding: 16px;
+}
+.social-icons .social-logo:hover{
+    transform: scale(1.3) rotate(-10deg);
+    cursor: pointer;
+    color: white !important;
+}

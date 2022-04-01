@@ -373,3 +373,29 @@ if (imageLinks.length == 1) {
 
 	startSlide();
 }
+
+function href(link){
+	if (link != null) {
+		window.location.href = link;
+	}	
+}
+function tab(link){
+	if(link != null){
+		window.open(link);
+	}
+}
+
+
+function change_text_settings(input, result, which, is_pass){
+	result = document.querySelector(result);
+	result.innerHTML = "Please wait while changing...";
+	input.disabled = true;
+	input.style = "border:1px solid gray; color: gray;";
+	loadLink('/json.php', [['name', which], ['value', input.value], ['is_pass', is_pass],['change_text_settings','true']]).then(db_result=>{
+		result.innerHTML = db_result.settings_changed;
+		setTimeout(()=>{
+			input.disabled = false;
+			input.style = "";
+		}, 3000)
+	});
+}

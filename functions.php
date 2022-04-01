@@ -1,7 +1,12 @@
 <?php 
+date_default_timezone_set("Europe/Berlin");
 $time = time();
 session_start();
 $connect = connect();
+$info = info();
+$ip =  get_client_ip();
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+$website = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST'];
 function connect(){
 	$DB_HOST = "localhost";
 	$DB_USER = "root";
@@ -254,14 +259,15 @@ function times($ss) {
 function info(){
     $result = array();
     global $connect;
-    $sql = "SELECT * FROM `info` ORDER BY `info`.`id` DESC";
-    $query = mysqli_query($connect, $sql);
-    if($query){
-        foreach($query as $details){
-            $result[$details['name']] = $details['value'];
-        }
-    }else{
-        return false;
-    }
+	$sql = "SELECT * FROM `info` ORDER BY `info`.`id` DESC";
+	$query = @mysqli_query($connect, $sql);
+	if($query){
+		foreach($query as $details){
+			$result[$details['name']] = $details['value'];
+		}
+	}else{
+		return false;
+	}
+		
     return $result;
 }

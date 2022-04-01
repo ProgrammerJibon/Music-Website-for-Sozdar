@@ -1,3 +1,5 @@
-<?php require 'page-header.php';?>
-<title></title>
-<?php require 'page-footer.php';?>
+<title><?php echo $info['title'];?></title>
+<?php
+require_once 'page-header.php';
+require_once 'block-top-banner.php';
+require_once 'page-footer.php';
