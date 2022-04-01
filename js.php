@@ -435,11 +435,6 @@ function window_onload(){
 }
 
 
-function onscreen(element)
-{
-	console.log(Math.abs(element.getBoundingClientRect().top - window.scrollY))
-	return Math.abs(element.getBoundingClientRect().top - window.scrollY) < 100;
-}
 
 
 window.onpopstate = (e) =>{ 
@@ -493,19 +488,13 @@ function checkPathName(path){
 			left: 0,
 			behavior: 'smooth'
 		});
-	}
-	if(path == "photos"){
+	}else if(path == "photos"){
 		document.querySelector("div.photos").scrollIntoView({ behavior: 'smooth' });
+	}else if(path == "about-me"){
+		document.querySelector("div.about-me").scrollIntoView({ behavior: 'smooth' });
+	}else if(path == "events"){
+		document.querySelector("div.events").scrollIntoView({ behavior: 'smooth' });
 	}
 }
 
 
-
-window.onscroll=(e)=>{
-	if(onscreen(document.querySelector(".photos"))){
-		setState('photos');
-	}else if(onscreen(document.querySelector(".top_banner"))){
-		setState('/');
-	}
-	
-}

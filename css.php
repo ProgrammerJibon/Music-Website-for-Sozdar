@@ -60,7 +60,7 @@ input {
 }
 *{
 	font-family: Raleway,sans-serif;
-	user-select:  none;
+	user-select:  text;
 	pointer-events: auto;
 	transition: all 0.15s ease-in-out;
 	box-sizing: border-box;
@@ -525,6 +525,8 @@ pre{
 }
 .photos-grid .photos-item:hover .title{
     bottom: 0;
+    max-height: 32px;
+    overflow: hidden;
 }
 .photos-grid .photos-item:hover .date{
     top: 0;
@@ -532,8 +534,56 @@ pre{
 .photos {
     padding: 32px;
 }
-.photos{
+h1{
     color: white;
     text-align: center;
 }
-    
+.about-me{
+    text-align: center;
+    padding-top: 64px;
+    background: url('/cdn/3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.about-me span {
+    color: white;
+    padding: 16px;
+    max-width: 500px;
+    font-size: 14px;
+    margin: 0 auto;
+    letter-spacing: 3px;
+    line-height: 1.3;
+    font-family: monospace;
+}
+
+.events {
+    margin: 128px 32px 32px 32px;
+}
+.events table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  color: white;
+}
+
+.events table thead tr{
+    background: black !important;
+    color: gray;
+    text-align: center;
+  font-size: 14px;
+}
+.events table tbody tr td {
+  text-align: left;
+  font-size: 13px;
+}
+.events table tr th, .events table tr td {
+  padding: 16px;
+}
+.events table tr:nth-child(odd) {
+  background-color: #00000052;
+}
+.events table tr:nth-child(even) {
+  background-color: #000000b5;
+}
