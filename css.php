@@ -539,7 +539,7 @@ pre{
     transform: scale(1);
 }
 .photos {
-    padding: 32px;
+    padding: 0 32px 64px 32px;
 }
 h1{
     color: white;
@@ -547,7 +547,7 @@ h1{
 }
 .about-me{
     text-align: center;
-    padding-top: 64px;
+    padding-bottom: 64px;
     background: url('/cdn/3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -566,7 +566,7 @@ h1{
 }
 
 .events {
-    margin: 128px 32px 32px 32px;
+    margin: 0px 32px 32px 32px;
 }
 .events table {
   border-collapse: collapse;
@@ -603,4 +603,8 @@ h1{
     z-index: 8;
     background: black;
     color: white;
+}
+view {
+    height: 64px;
+    display: block;
 }

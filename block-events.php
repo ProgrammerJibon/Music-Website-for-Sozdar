@@ -1,4 +1,5 @@
 <div class="events">
+    <view></view>
     <h1>All Past and Upcoming Events</h1>
     <table style="width: 100%">
         <tbody>

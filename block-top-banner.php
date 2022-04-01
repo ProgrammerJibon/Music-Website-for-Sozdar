@@ -1,4 +1,5 @@
 <div class="top_banner" style="background: url('<?php echo $info['top_banner']; ?>');background-size: cover;background-repeat: no-repeat;background-position: center;background-attachment: fixed;">
+    <view></view>
     <div class="top_banner_outset">
         <div class="top_banner_inset">
             <div>

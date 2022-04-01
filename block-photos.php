@@ -1,4 +1,5 @@
         <div class="photos">
+            <view></view>
             <h1>Photos Gallery</h1>
             <div class="photos-grid"><?php 
 if($query = mysqli_query($connect, "SELECT * FROM `photos` ORDER BY `photos`.`id` DESC")){

@@ -16,7 +16,7 @@
     <div class="menu-item" onclick="setState('contact-me');">
         <span>Contact me</span>
     </div>
-    <div class="menu-item" onclick="href('admin')" style="color: red;">
+    <!-- <div class="menu-item" onclick="href('admin')" style="color: red;">
         <span>Login</span>
-    </div>
+    </div> -->
 </div>

@@ -388,6 +388,10 @@ function tab(link){
 }
 
 
+function onscreen(element){
+	return (element.getBoundingClientRect().y > 0 && element.getBoundingClientRect().y < 50);
+}
+
 function change_text_settings(input, result, which, is_pass){
 	result = document.querySelector(result);
 	result.innerHTML = "Please wait while changing...";
@@ -489,12 +493,13 @@ function checkPathName(path){
 			behavior: 'smooth'
 		});
 	}else if(path == "photos"){
-		document.querySelector("div.photos").scrollIntoView({ behavior: 'smooth' });
+		document.querySelector("div.photos view").scrollIntoView({ behavior: 'smooth' });
 	}else if(path == "about-me"){
-		document.querySelector("div.about-me").scrollIntoView({ behavior: 'smooth' });
+		document.querySelector("div.about-me view").scrollIntoView({ behavior: 'smooth' });
 	}else if(path == "events"){
-		document.querySelector("div.events").scrollIntoView({ behavior: 'smooth' });
+		document.querySelector("div.events view").scrollIntoView({ behavior: 'smooth' });
+	}else if(path == "contact-me"){
+		document.querySelector("div.contact-me view").scrollIntoView({ behavior: 'smooth' });
 	}
 }
-
 
