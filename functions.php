@@ -11,6 +11,43 @@ function connect(){
 	return $CONNECT;
 }
 
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
+
+
+function to_timestamp(){
+	$d = DateTime::createFromFormat(
+		'd-m-Y H:i:s',
+		'22-09-2008 00:00:00',
+		new DateTimeZone('EST')
+	);
+	
+	if ($d === false) {
+		return false;
+	} else {
+		return $d->getTimestamp();
+	}
+	return false;
+}
+
+
 function filter_namex($strip = null, $replace = null, $full_name = null){
 
     $r = "";
@@ -36,6 +73,31 @@ function filter_namex($strip = null, $replace = null, $full_name = null){
     return $r;
 
 }
+
+
+
+
+function upload($tmp_file, $type = false){
+	$mime_file_type = explode("/", mime_content_type($tmp_file));
+	$result = false;
+	if($type == false || $type == $mime_file_type[0]){
+		$file_path = "uploads/".date("Y/M/");
+		if (!file_exists($file_path)) {
+			mkdir($file_path, 0777, true);
+		}
+		$file_name = $file_path.$mime_file_type[0]."-".time()."-".rand().".".$mime_file_type[1];
+		if(move_uploaded_file($tmp_file, $file_name)){
+			$result = $file_name;
+		}
+	}
+	return $result;
+}
+
+
+
+
+
+
 function sent_mail($to = null, $fname = null, $message = null, $subject = null, $reply_to_this = null){
 	$fname = ucwords(strtolower(addslashes($fname)));
 	$to = (strtolower(addslashes(strip_tags($to))));
@@ -186,3 +248,20 @@ function times($ss) {
 	return $result;
 }
 
+
+
+
+function info(){
+    $result = array();
+    global $connect;
+    $sql = "SELECT * FROM `info` ORDER BY `info`.`id` DESC";
+    $query = mysqli_query($connect, $sql);
+    if($query){
+        foreach($query as $details){
+            $result[$details['name']] = $details['value'];
+        }
+    }else{
+        return false;
+    }
+    return $result;
+}
