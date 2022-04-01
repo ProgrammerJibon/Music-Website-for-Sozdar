@@ -9,9 +9,9 @@
                     <?php echo $info['title']; ?>
                 </span>
             </div>
+            <div>
+                <?php require_once"item-menu-bar.php"; ?>
+            </div>
         </div>
     </div>
 </div>
-            <div>
-                <pre><?php print_r($_SERVER)?></pre>
-            </div>

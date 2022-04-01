@@ -3,7 +3,7 @@
 
 
 body{
-	/*background: #212529;*/
+	background: #212529;
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
@@ -64,6 +64,10 @@ input {
 	pointer-events: auto;
 	transition: all 0.15s ease-in-out;
 	box-sizing: border-box;
+}
+
+a, span{
+    display: inline-block;
 }
 
 img{
@@ -459,3 +463,77 @@ pre{
     cursor: pointer;
     color: white !important;
 }
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.menu-bar .menu-item {
+    height: 60px;
+    padding: 0 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.menu-bar .menu-item:hover {
+    color: #ff0052;
+    transform: scale(1.1);
+}
+
+.photos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+}
+.photos-grid .photos-item {
+    width: 300px;
+    height: 200px;
+    margin: 16px 8px 16px 0px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.photos-grid .photos-item .title {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background: black;
+    color: white;
+    width: 100%;
+    padding: 8px;
+}
+.photos-grid .photos-item .date {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 8px;
+}
+.photos-grid .photos-item:hover .title{
+    bottom: 0;
+}
+.photos-grid .photos-item:hover .date{
+    top: 0;
+}
+.photos {
+    padding: 32px;
+}
+.photos{
+    color: white;
+    text-align: center;
+}
+    
