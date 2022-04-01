@@ -2,7 +2,7 @@
     <div class="top_banner_outset">
         <div class="top_banner_inset">
             <div>
-                <?php require_once"item-social.php"; ?>
+                <?php require "item-social.php"; ?>
             </div>
             <div class="title" onclick="href('/');">
                 <span>
@@ -10,7 +10,7 @@
                 </span>
             </div>
             <div>
-                <?php require_once"item-menu-bar.php"; ?>
+                <?php require "item-menu-bar.php"; ?>
             </div>
         </div>
     </div>

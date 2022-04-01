@@ -411,7 +411,8 @@ pre{
 
 /*****************************************************************************************/
 .top_banner {
-
+    position: relative;
+    z-index: 9;
 }
 .top_banner .title{
     text-align: center;
@@ -531,6 +532,12 @@ pre{
 .photos-grid .photos-item:hover .date{
     top: 0;
 }
+.photos-grid .photos-item:hover .photo{
+    transform: scale(1.1);
+}
+.photos-grid .photos-item .photo{
+    transform: scale(1);
+}
 .photos {
     padding: 32px;
 }
@@ -586,4 +593,14 @@ h1{
 }
 .events table tr:nth-child(even) {
   background-color: #000000b5;
+}
+.menu-bars-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 8;
+    background: black;
+    color: white;
 }

@@ -11,6 +11,12 @@
     <div class="social-logo" style="color: #1ED760;" onclick="tab('<?php echo $info['spotify']; ?>')"  title="<?php echo $info['spotify']; ?>">
         <i class="fa-brands fa-spotify"></i>
     </div>
+    <div class="social-logo" style="color: orange;" onclick="tab('<?php echo $info['soundcloud']; ?>')"  title="<?php echo $info['soundcloud']; ?>">
+        <i class="fa-brands fa-soundcloud"></i>
+    </div>
+    <div class="social-logo" style="color: white;" onclick="tab('<?php echo $info['apple_music']; ?>')"  title="<?php echo $info['apple_music']; ?>">
+        <i class="fa-brands fa-apple"></i>
+    </div>
     <div class="social-logo" style="color: #ff0018;" onclick="tab('<?php echo $info['youtube']; ?>')"  title="<?php echo $info['youtube']; ?>">
         <i class="fa-brands fa-youtube"></i>
     </div>
