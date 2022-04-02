@@ -71,7 +71,7 @@ function loadLink(url, data){
 	return new Promise(function(resolve, reject){
 
 		var http = new XMLHttpRequest();
-		var loader = document.querySelector(".loader .loaded");
+		var loader = document.querySelector(".progressbar .progress");
 		loader.style = `width: 20%;`;
 		http.open("POST", url);
 		var formData = new FormData();
@@ -431,7 +431,6 @@ function window_onload(){
 		}
 		if (body = document.querySelector('body')) {
 			if ((body.style.background = "black") && (body.style.color = "white")) {
-				alert('Entering wrong password will make you wait 30 sec everytime');
 				ask_admin_pass();
 			}
 		}

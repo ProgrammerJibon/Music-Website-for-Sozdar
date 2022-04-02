@@ -16,5 +16,4 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,800" rel="stylesheet">
 </head>
 <body>
-    
 <div class="progressbar"><div class="progress"></div></div>
