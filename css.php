@@ -11,6 +11,7 @@ body{
 	font-size: 14px;
 	user-select: none;
 	max-width: calc(100vw - 10px);
+    min-width: 500px;
 }
 select:hover{
 	background: white !important;
@@ -514,6 +515,7 @@ pre{
     color: white;
     width: 100%;
     padding: 8px;
+    white-space: nowrap;
 }
 .photos-grid .photos-item .date {
     position: absolute;
@@ -607,4 +609,38 @@ h1{
 view {
     height: 64px;
     display: block;
+}
+
+.contact-way {
+    width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: white;
+}
+.contact-way .contact-way-logo {
+    font-size: 24px;
+}
+.contact-way .contact-way-data {
+    padding: 16px;
+    font-size: 14px;
+}
+.contact-way a.contact-way-data span{
+    color: white;
+    text-transform: lowercase;
+}
+.contact-way a.contact-way-data:hover span{
+    text-decoration: underline !important;
+    color: red;
+}
+
+@media only screen and (max-width: 768px) {
+    body{
+        font-size: 11px;
+    }
+    .menu-bar .menu-item 
 }

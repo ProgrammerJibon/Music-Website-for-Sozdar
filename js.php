@@ -503,3 +503,11 @@ function checkPathName(path){
 	}
 }
 
+function forceDownload(href) {
+	var anchor = document.createElement('a');
+	anchor.href = href;
+	anchor.download = href;
+	document.body.appendChild(anchor);
+	anchor.click();
+	document.body.removeChild(anchor);
+}

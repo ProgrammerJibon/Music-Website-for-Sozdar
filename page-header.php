@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=0.7">
     <meta property="og:title" content="<?php echo $info['title'];?>" />
     <meta property="og:url" content="<?php echo $website.$_SERVER['REQUEST_URI'];?>" />
     <meta property="og:image" content="<?php echo $website."".$info['top_banner'];?>" />
