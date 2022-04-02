@@ -1,5 +1,5 @@
 <?php 
-if (!isset($result)) {
+if (!isset($info)) {
 	exit();
 }
  ?>
@@ -9,7 +9,7 @@ if (!isset($result)) {
 			Change Logo:
 		</div>
 		<div class="settings_img_change" onclick="document.querySelector('input#logo_change').click()">
-			<img src="<?php echo $result['logo']; ?>">
+			<img src="<?php echo $info['logo']; ?>">
 		</div>
 		<div>
 			<form method="POST" enctype="multipart/form-data" action="/json.php">
@@ -22,27 +22,13 @@ if (!isset($result)) {
 		<div class="settings_title">
 			Change Homepage banner:
 		</div>
-		<div class="settings_img_change" onclick="document.querySelector('input#home_page_banner_1').click()">
-			<img src="<?php echo $result['home-block-bg-1']; ?>">
+		<div class="settings_img_change" onclick="document.querySelector('input#top_banner').click()">
+			<img src="<?php echo $info['top_banner']; ?>">
 		</div>
 		<div>
 			<form method="POST" enctype="multipart/form-data" action="/json.php">
-				<input id="home_page_banner_1" type="file" oninput ="if (this.value != null) {document.querySelector('input#hit_home_page_banner_1').click()}" name="home_page_banner_1" accept="image/*" hidden>
-				<input type="submit" id="hit_home_page_banner_1" hidden name="">
-			</form>
-		</div>
-	</div>
-	<div class="settings_item">
-		<div class="settings_title">
-			Change Homepage banner:
-		</div>
-		<div class="settings_img_change" onclick="document.querySelector('input#home_page_banner_2').click()">
-			<img src="<?php echo $result['home-block-bg-2']; ?>">
-		</div>
-		<div>
-			<form method="POST" enctype="multipart/form-data" action="/json.php">
-				<input id="home_page_banner_2" type="file" oninput ="if (this.value != null) {document.querySelector('input#hit_home_page_banner_2').click()}" name="home_page_banner_2" accept="image/*" hidden>
-				<input type="submit" id="hit_home_page_banner_2" hidden name="">
+				<input id="top_banner" type="file" oninput ="if (this.value != null) {document.querySelector('input#hit_top_banner').click()}" name="top_banner" accept="image/*" hidden>
+				<input type="submit" id="hit_top_banner" hidden name="">
 			</form>
 		</div>
 	</div>
@@ -52,46 +38,36 @@ if (!isset($result)) {
 			Change Website Title:
 		</div>
 		<div>
-			<input type="text" onchange="change_text_settings(this, 'div.changing_site_title', 'title')" class="change_text" value="<?php echo $result['title']; ?>">
+			<input type="text" onchange="change_text_settings(this, 'div.changing_site_title', 'title')" class="change_text" value="<?php echo $info['title']; ?>">
 		</div>
 		<div class="changing_site_title result_change_text"></div>
 	</div>
 	
 	<div class="settings_item">
 		<div class="settings_title">
-			Change Website sub title:
+			Change about me text:
 		</div>
 		<div>
-			<input type="text" onchange="change_text_settings(this, 'div.sub-title', 'sub-title')" class="change_text" value="<?php echo $result['sub-title']; ?>">
+			<textarea type="text" onchange="change_text_settings(this, 'div.about_me', 'about_me')" class="change_text" value="<?php echo $info['about_me']; ?>"><?php echo $info['about_me']; ?></textarea>
 		</div>
-		<div class="sub-title result_change_text"></div>
+		<div class="about_me result_change_text"></div>
 	</div>
 	
 	<div class="settings_item">
 		<div class="settings_title">
-			Change Opening time as notes to customer:
+			Change booking email:
 		</div>
 		<div>
-			<input type="text" onchange="change_text_settings(this, 'div.open', 'open')" class="change_text" value="<?php echo $result['open']; ?>">
+			<input type="text" onchange="change_text_settings(this, 'div.booking_email', 'booking_email')" class="change_text" value="<?php echo $info['booking_email']; ?>">
 		</div>
-		<div class="open result_change_text"></div>
-	</div>
-	
-	<div class="settings_item">
-		<div class="settings_title">
-			Change Resturant Est. year:
-		</div>
-		<div>
-			<input type="text" onchange="change_text_settings(this, 'div.est', 'est')" class="change_text" value="<?php echo $result['est']; ?>">
-		</div>
-		<div class="est result_change_text"></div>
+		<div class="booking_email result_change_text"></div>
 	</div>
 	<div class="settings_item">
 		<div class="settings_title">
 			Change Phone Number:
 		</div>
 		<div>
-			<input type="text" onchange="change_text_settings(this, 'div.changing_phone', 'phone')" class="change_text" value="<?php echo $result['phone']; ?>">
+			<input type="text" onchange="change_text_settings(this, 'div.changing_phone', 'phone')" class="change_text" value="<?php echo $info['phone']; ?>">
 		</div>
 		<div class="changing_phone result_change_text"></div>
 	</div>
@@ -100,7 +76,7 @@ if (!isset($result)) {
 			Change Address:
 		</div>
 		<div>
-			<input type="text" onchange="change_text_settings(this, 'div.changing_site_address', 'address')" class="change_text" value="<?php echo $result['address']; ?>">
+			<input type="text" onchange="change_text_settings(this, 'div.changing_site_address', 'address')" class="change_text" value="<?php echo $info['address']; ?>">
 		</div>
 		<div class="changing_site_address result_change_text"></div>
 	</div>
@@ -109,7 +85,7 @@ if (!isset($result)) {
 			Change Email:
 		</div>
 		<div>
-			<input type="email" onchange="change_text_settings(this, 'div.changing_site_email', 'email')" class="change_text" value="<?php echo $result['email']; ?>">
+			<input type="email" onchange="change_text_settings(this, 'div.changing_site_email', 'email')" class="change_text" value="<?php echo $info['email']; ?>">
 		</div>
 		<div class="changing_site_email result_change_text"></div>
 	</div>
@@ -118,7 +94,7 @@ if (!isset($result)) {
 			Change Admin Password:
 		</div>
 		<div>
-			<input type="password" onchange="change_text_settings(this, 'div.changing_password', 'password', 'pass')" class="change_text" placeholder="Password">
+			<input type="password" onchange="if(confirm(`Are you sure to change your password to: ${this.value}`)){change_text_settings(this, 'div.changing_password', 'password', 'pass')}else{this.value = null;return false;}" class="change_text" placeholder="Password">
 		</div>
 		<div class="changing_password result_change_text"></div>
 	</div>		

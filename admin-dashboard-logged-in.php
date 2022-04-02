@@ -18,24 +18,18 @@ if (!isset($_GET['p'])) {
 	header("HTTP/1.0 404 No settings pages founded");
 	exit();
 }else{
-$result = array();
-if (!($query_result_all_data = @mysqli_query($connect, "SELECT * FROM `info`"))) {
-	$result['error'] = "Can't connect to database";
-	echo json_encode($result);
-	exit();
-}
-foreach ($query_result_all_data as $key) {
-	$result[$key['name']] = $key['value'];
-}
+
 
 require_once 'page-header.php';
+
 }
 ?>
 <div class="admin_page">
+    <?php require_once 'block-top-banner.php'; ?>
     <div class="menu_bar">
         <div class="menu_item"
             <?php if($_GET['p'] == 0){echo "style='background:  #acacac; color: white;'";}else{echo " onclick=\"href('?p=0')\"";} ?>>
-            Table Books</div>
+            Events</div>
         <div class="menu_item"
             <?php if($_GET['p'] == 2){echo "style='background:  #acacac; color: white;'";}else{echo " onclick=\"href('?p=2')\"";} ?>>
             Social Url</div>
@@ -47,8 +41,8 @@ require_once 'page-header.php';
             Newsletter Emails</div>
         <div class="menu_item"
             <?php if($_GET['p'] == 1){echo "style='background:  #acacac; color: white;'";}else{echo " onclick=\"href('?p=1')\"";} ?>>
-            Menus</div>
-        <form class="menu_item" method="POST" style="padding: 0;">
+            Photos</div>
+        <form class="menu_item" method="POST" style="padding: 0; margin: 0;">
             <input type="submit" class="menu_item" name="logout" value="LOGOUT"/>
         </form>
     </div>
@@ -61,9 +55,9 @@ require_once 'page-header.php';
 			}elseif ($_GET['p'] == 5) {
 				require_once 'admin-newsletter-emails.php';
 			}elseif ($_GET['p'] == 1) {
-				require_once 'admin-menus.php';
+				require_once 'admin-photos.php';
 			}elseif ($_GET['p'] == 0) {
-				require_once 'admin-table-books.php';
+				require_once 'admin-events.php';
 			}
 		 ?>
     </div>

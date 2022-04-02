@@ -6,6 +6,17 @@ function viewRemove(div) {
 	div.classList.remove("show")
 }
 
+
+
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+
 var last_url = "";
 
 function rgba(r, g, b, a){
@@ -406,6 +417,48 @@ function change_text_settings(input, result, which, is_pass){
 	});
 }
 
+
+function newsletterSubscription1(input, button){
+	if (input.value == "" || validateEmail(input.value) == null) {
+		alert("Please enter an valid email");
+		input.focus();
+	}else{
+		button.disabled = true;
+		loadLink('/json.php', [['newsletter_subscription',input.value],['bool','false']]).then(result=>{
+			if (result.newsletter_subscription == 1) {
+				alert("successfully subscribed!");
+				setTimeout(() => {
+					button.disabled = true;
+					input.innerHTML = "";
+				}, 3000);
+			}else if (result.newsletter_subscription == 2) {
+				alert("Server is busy...");
+				input.focus();
+				setTimeout(() => {
+					button.disabled = false;
+				}, 3000);
+			}else if (result.newsletter_subscription == 3) {
+				alert("Already registered!");
+				setTimeout(() => {
+					button.disabled = true;
+				}, 3000);
+			}else if (result.newsletter_subscription == 4) {
+				alert("Invalid Email");
+				input.focus();
+				setTimeout(() => {
+					button.disabled = false;
+				}, 3000);
+			}else{
+				alert("Internet is unstable!");
+				input.focus();
+				setTimeout(() => {
+					button.disabled = false;
+				}, 3000);
+			}
+		});
+	}
+	
+}
 
 function window_onload(){
 	window.onpopstate();

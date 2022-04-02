@@ -2,6 +2,11 @@
 /*<style type="text/css">/**/
 
 
+:root{
+    --primary: white;
+    --optional: black;
+    --optional-2: #440012;
+}
 body{
 	background: #212529;
 	margin: 0;
@@ -150,6 +155,16 @@ img{
 .admin_page{
 	padding: 0px 32px;
 }
+.admin_page .top_banner{
+    margin: 0 -32px;
+}
+.admin_page .top_banner .menu-bar{
+    display: none;
+}
+.admin_page .top_banner .top_banner_inset .title span:after {
+    content: " Admin";
+    color: #f80145;
+}
 .admin_page .home_page_logo img{
     width: 200px;
     height: auto;
@@ -162,8 +177,26 @@ img{
     align-content: center;
     background: var(--optional-2);
     margin: 0 -32px;
-    box-shadow: 5px 5px 15px -5px grey;
+    box-shadow: 5px 5px 15px -5px black;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    white-space: nowrap;
+    z-index: 9;
+}
+.admin_page button:hover{
+    color: #ff0045;
+}
+.admin_page button{
+    background: unset;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 15px;
+    color: #ff0052;
+    border: 1px solid #ff0052;
+    background: white;
+    font-weight: bold;
+    border-radius: 3px;
 }
 .admin_page .menu_bar .menu_item {
     padding: 32px 4px;
@@ -185,6 +218,10 @@ img{
     background: red;
     border: 0;
     margin: 0;
+}
+.newsletter {
+    padding: 32px 32px;
+    color: white;
 }
 .admin_page .menu_bar .menu_item[name="logout"]:hover{
     color: red;
@@ -216,7 +253,7 @@ input:disabled, input:disabled:hover{
 	font-family: cursive;
 	color: var(--primary);
 }
-.settings_main .settings_item input.change_text {
+.settings_main .settings_item input.change_text, .settings_main .settings_item textarea.change_text {
     width: 100%;
     padding: 8px 16px;
     font-size: 15px;
@@ -226,15 +263,16 @@ input:disabled, input:disabled:hover{
     margin: 8px 0;
     background: white;
     cursor: pointer;
+    resize: vertical;
 }
-
-.settings_main .settings_item input.change_text[type='submit']{
-	background: #ff0052;
-	color: white;
+.settings_main .settings_item textarea.change_text{
+    height: 350px;
 }
-.settings_main .settings_item input.change_text:focus{
-	background: #ff0052;
-	color: white;
+.settings_main .settings_item input.change_text[type='submit'], .settings_main .settings_item textarea.change_text[type='submit']{
+    color: inherit;
+}
+.settings_main .settings_item input.change_text:focus, .settings_main .settings_item textarea.change_text:focus{
+    color: inherit;
 }
 .settings_main .settings_item .result_change_text{
 	color: green;
@@ -242,8 +280,32 @@ input:disabled, input:disabled:hover{
     font-size: 15px;
 }
 
+table{
+	overflow-x: hidden;
+	width: 100%;
+	margin: 64px 0;
+}
+table tr{
+	background: #ffd9d9;
+}
+table tr td{
+	padding: 16px;
+}
+table thead tr th{
+	padding: 16px;
+}
+table thead tr{
+	background: #ff7b7b;
+    color: white;
+}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-
+button:disabled{
+    color: gray !important;
+    border-color: solid gray;
+}
 
 
 hr{
@@ -795,5 +857,11 @@ view {
     }
     .menu-item-login{
         display: none !important;
-    }    
+    }   
+    .admin_page .menu_bar .menu_item{
+        font-size: 11px;
+    }
+    .top_banner .title{
+        font-size: 35px;
+    }
 }
