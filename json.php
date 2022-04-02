@@ -73,6 +73,29 @@ if (isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == "4564654654lkas
         }
     }
 
+
+    if(isset($_POST['delete_photo'])){
+        if(mysqli_query($connect, "DELETE FROM `photos` WHERE `photos`.`id` = '$_POST[delete_photo]'")){
+            header("Location: /admin?p=1");
+        }else{
+            $result['add_menu_item']['error'] = mysqli_error($connect);
+        }
+    }
+
+    if(isset($_POST['add_photo'])){
+        
+        if($pic_url = upload($_FILES['pic']['tmp_name'], "image")){
+            if (mysqli_query($connect, "INSERT INTO `photos` (`id`, `title`, `took_date`, `pic`, `time`) VALUES (NULL, '$_POST[desc]', '$_POST[date]', '$pic_url', '$time')")) {
+                header("Location: /admin?p=1");
+            }else{
+                $result['add_photo'] = mysqli_error($connect);
+            }
+        }else{
+            $result['add_photo'] = "Unable to upload photo!";
+        }
+    }
+    
+
 }
 
 

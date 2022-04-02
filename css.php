@@ -201,7 +201,7 @@ img{
 .admin_page .menu_bar .menu_item {
     padding: 32px 4px;
     color: var(--primary);
-    font-size: 18px;
+    font-size: 15px;
     text-transform: capitalize;
     cursor: pointer;
     width: 100%;
@@ -659,6 +659,11 @@ pre{
     align-items: center;
     justify-content: space-around;
     align-content: center;
+}
+.photos-grid form.delete_photo {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .photos-grid .photos-item {
     width: 300px;
