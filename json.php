@@ -4,14 +4,34 @@ $result = array();
 
 if (isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == "4564654654lkasjdfowaietrjsaoidfjskldtjoidsjglk1dc451fs5d1f564asdf564as5df15ew64r54") {
     if (isset($_POST['change_text_settings']) && isset($_POST['name']) && isset($_POST['value']) && $_POST['name'] != "" && $_POST['value'] != "") {
-		if (isset($_POST['is_pass']) && $_POST['is_pass'] == "pass") {
-			$_POST['value'] = md5($_POST['value']);
-		}
-		if (@mysqli_query($connect, "UPDATE `info` SET `value` = '$_POST[value]' WHERE `info`.`name` = '$_POST[name]'")) {
-			$result['settings_changed'] = "Successfully updated!";
+		if ($_POST['name'] == "password") {
+
+
+            $password = $_POST['value'];
+
+            $number = preg_match('@[0-9]@', $password);
+            $uppercase = preg_match('@[A-Z]@', $password);
+            $lowercase = preg_match('@[a-z]@', $password);
+            $specialChars = preg_match('@[^\w]@', $password);
+            
+            if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
+                $result['settings_changed'] = "Password length must be between 8 to 255, must contain at least one number, one upper case letter, one lower case letter and one special character.";
+            }else{
+                $password = md5($password);
+                if (@mysqli_query($connect, "UPDATE `info` SET `value` = '$password' WHERE `info`.`name` = 'password'")) {
+                    $result['settings_changed'] = "Password updated!";
+                }else{
+                    $result['settings_changed'] = "Something went wrong!";
+                }
+            }
+   
 		}else{
-			$result['settings_changed'] = "Something went wrong!";
-		}
+            if (@mysqli_query($connect, "UPDATE `info` SET `value` = '$_POST[value]' WHERE `info`.`name` = '$_POST[name]'")) {
+                $result['settings_changed'] = "Successfully updated!";
+            }else{
+                $result['settings_changed'] = "Something went wrong!";
+            }
+        }
 	}
     
 
