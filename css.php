@@ -549,7 +549,7 @@ h1{
 }
 .about-me{
     text-align: center;
-    padding-bottom: 64px;
+    padding-bottom: 0;
     background: url('/cdn/3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -566,9 +566,17 @@ h1{
     line-height: 1.3;
     font-family: monospace;
 }
-
 .events {
-    margin: 0px 32px 32px 32px;
+    background: url(/cdn/8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+}
+.events .events-x{
+    background: #000000ad;
+    backdrop-filter: blur(5px);
+    padding: 0px 32px 32px 32px;
 }
 .events table {
   border-collapse: collapse;
@@ -611,6 +619,23 @@ view {
     display: block;
 }
 
+.contact-me{
+    text-align: center;
+    background: url('/cdn/7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.dark-shadow{
+    background-color: #000000c2;
+    padding-bottom: 64px;
+}
+
+.dark-shadow-low{
+    background-color: #00000096;
+    padding-bottom: 64px;
+}
 .contact-way {
     width: 400px;
     margin: 0 auto;
@@ -638,9 +663,38 @@ view {
     color: red;
 }
 
+
+.copyright {
+    padding: 32px;
+    background: #000214;
+}
+.copyright .copyright-text {
+    display: flex;
+    color: white;
+    font-size: 12px;
+    margin: 0 auto;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.copyright .copyright-text a{
+    color: #ff0045;
+    text-decoration: none;
+}
+.copyright .copyright-text a:hover{
+    color: #00ff5a;
+    text-decoration: underline;
+}
+.copyright .copyright-text *{
+    font-family: monospace;
+}
+
 @media only screen and (max-width: 768px) {
     body{
         font-size: 11px;
     }
-    .menu-bar .menu-item 
+    .menu-item-login{
+        display: none !important;
+    }    
 }
